@@ -1,0 +1,21 @@
+
+#este no lo he probado, es como el del profe
+version: "3.8"
+services:
+  app:
+    image: arm64v8/openjdk:17-jdk-slim
+    container_name: application
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./build/libs:/app
+    working_dir: /app
+    command: java -jar backend-taskapp-0.0.1-SNAPSHOT.jar
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/taskapp
+      - SPRING_DATASOURCE_USERNAME=taskapp
+      - SPRING_DATASOURCE_PASSWORD=12345
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_PROFILES_ACTIVE=default
+    depends_on:
+      - db

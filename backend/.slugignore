@@ -1,0 +1,11 @@
+*.md
+*.iml
+*.log
+.gradle/
+build/
+tmp/
+.idea/
+*.zip
+*.tar.gz
+*.psd
+node_modules/

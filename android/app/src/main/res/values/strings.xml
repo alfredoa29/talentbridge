@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">oportunia</string>
+    <string name="intership_title">Pasantías disponibles</string>
+    <string name="intership_details">Detalles de pasantia</string>
+    <string name="cv_analysis_title">Análisis de CV</string>
+    <string name="my_internships_title">Mis pasantías</string>
+    <string name="interviews_title">Entrevistas disponibles</string>
+    <string name="student_profile_title">Perfil del estudiante</string>
+    <string name="interviews_simulation">Simulación de entrevista</string>
+    <string name="internship_list">Pasantías </string>
+    <string name="cv_analysis">Analisis de CV</string>
+    <string name="my_internships">Mis pasantias</string>
+    <string name="interviews">Entrevistas</string>
+    <string name="internship_applications_nav">Solicitudes</string>
+    <string name="register_internship_nav">Registrar</string>
+    <string name="company_internships_nav">Pasantias</string>
+    <string name="company_account_nav">Cuenta</string>
+    <string name="applicants_internship_title">Solicitudes pendientes</string>
+    <string name="register_internship_title">Registrar una pasantia</string>
+    <string name="internship_title">Pasantias</string>
+    <string name="account_title">Perfil de la Compañia</string>
+    <string name="company_profile_title">Pasantias</string>
+    <string name="edit_internship">Editar pasantia</string>
+    <string name="applicant_details">Detalles del aplicante</string>
+    <string name="no_internships_available">No hay prácticas disponibles</string>
+    <string name="student_main_activity">Student Main Screen</string>
+    <string name="company_main_activity">Company Main Screen</string>
+    <string name="main_activity">Main Screen</string>
+    <string name="login_activity">Login main activity</string>
+    <string name="no_simulated_interviews">No hay prácticas disponibles</string>
+    <string name="no_students_internship_available">No applications available</string>
+    <string name="student_profile_details">Editar perfil\n</string>
+    <string name="company_profile_details">Editar cuenta\n</string>
+</resources>

@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+
+    #volumes:
+    #  - ./build/libs:/app
+
+    env_file:
+      - stack.env

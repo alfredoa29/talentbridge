@@ -1,0 +1,169 @@
+package com.example.oportunia.presentation.ui.components
+
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
+
+import com.example.oportunia.domain.model.Student
+import com.example.oportunia.domain.model.StudentInternship
+import com.example.oportunia.presentation.ui.theme.backgroundCream
+import com.example.oportunia.presentation.ui.theme.buttonBrownLine
+import com.example.oportunia.presentation.ui.theme.buttonCream
+
+@Composable
+fun InternshipApplicationItem(studentInternship: StudentInternship, onClick: (StudentInternship) -> Unit) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(115.dp) // Altura de la tarjeta
+            .padding(3.dp)
+            .clickable { /**/ },
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = backgroundCream// Fondo blanco para la tarjeta
+        )
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(12.dp)
+
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+
+            ) {
+                // Primera fila: Foto y datos
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 12.dp)
+                ) {
+                    // Foto
+                    // Imagen de perfil (ícono por defecto)
+                    Box(
+                        modifier = Modifier
+                            //.size(100.dp)
+                            .clip(CircleShape)
+                            .background(Color.Gray),
+                        contentAlignment = Alignment.Center
+                    ) {
+
+                        AsyncImage(
+                            model = studentInternship.profilePicUrl,
+                            contentDescription = "Profile Picture",
+                            modifier = Modifier.size(50.dp),
+                            contentScale = androidx.compose.ui.layout.ContentScale.Crop // Ajusta la imagen dentro del Box
+                        )
+
+
+
+                    }
+
+                    // Datos (título y descripción)
+                    Column(
+                        modifier = Modifier
+                            .padding(start = 16.dp)
+                            .weight(1f) // Ocupa el espacio restante
+
+                    ) {
+
+                        Text(
+                            text = "Aplicante",
+                            fontSize = 14.sp,
+                            color = Color.Gray,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+
+
+                        // Nombre completo de la  la persona
+                        Text(
+                            text = studentInternship.studentName,
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.Black,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+
+                        /*
+                        Text(
+                            text = "Pasantia",
+                            fontSize = 14.sp,
+                            color = Color.Gray,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+
+                         */
+                        // titulo pasantía
+
+                        Text(
+                            text = studentInternship.internshipTitle,
+                            fontSize = 14.sp,
+                            color = Color.Gray,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+
+
+                    }
+
+                    // Botón "Más información"
+                    ElevatedButton(
+                        onClick = { onClick(studentInternship) },
+                        shape = RoundedCornerShape(10.dp),
+                        border = BorderStroke(1.dp, buttonBrownLine),
+                        modifier = Modifier
+                         //   .align(Alignment.BottomEnd) // Alinea el botón en la parte inferior derecha
+                            .width(80.dp) // Tamaño reducido del botón
+                            .height(30.dp)
+                           /* .padding() */,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = buttonCream, // Color de fondo del botón
+                            contentColor = Color.Black  // Color del texto del botón
+                        ),
+                        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp) // Reduce el inner padding
+                    ) {
+                        Text(
+                            text = " Ver más",
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
+
+
+            }
+
+
+        }
+    }
+}
